@@ -1,0 +1,6 @@
+services:
+  my-client:
+    container_name: my-client-container
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
