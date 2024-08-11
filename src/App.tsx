@@ -3,7 +3,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import CountButton from "@/components/count-btn";
 
+const vite_var = import.meta.env.VITE_VAR;
+
 function App() {
+  console.log(vite_var);
+
   return (
     <>
       <div>
@@ -24,6 +28,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>Environmenta Variable: {vite_var}</p>
     </>
   );
 }
