@@ -4,9 +4,13 @@ import "./App.css";
 import CountButton from "@/components/count-btn";
 
 const vite_var = import.meta.env.VITE_VAR;
+const dev_mode = import.meta.env.DEV;
+const env_mode = dev_mode ? "development" : "production";
 
 function App() {
-  console.log(vite_var);
+  console.log("Env Variable:", vite_var);
+  console.log("Development:", dev_mode);
+  console.log("Environment:", env_mode);
 
   return (
     <>
@@ -28,7 +32,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <p>Environmenta Variable: {vite_var}</p>
+      <p>Environment Variable: {vite_var}</p>
     </>
   );
 }

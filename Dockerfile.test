@@ -1,4 +1,8 @@
 FROM node:20
+
+ARG VITE_VAR
+ENV VITE_VAR=$VITE_VAR
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

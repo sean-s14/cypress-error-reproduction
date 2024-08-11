@@ -1,0 +1,13 @@
+services:
+  my-client:
+    build:
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      VITE_VAR: ${VITE_VAR}
+      VAR: ${VITE_VAR}
+    volumes:
+      - ./:/app
+      - /app/node_modules
