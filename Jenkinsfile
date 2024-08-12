@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     bat 'docker-compose --version'
-                    bat 'docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build'
+                    bat 'docker-compose -f docker-compose.yaml -f docker-compose.test.yaml up -d --build'
                 }
             }
         }

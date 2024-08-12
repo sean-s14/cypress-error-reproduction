@@ -4,8 +4,11 @@ services:
       dockerfile: Dockerfile.test
       args:
         VITE_VAR: ${VITE_VAR}
-        VAR: ${VITE_VAR}
+        VAR: ${VAR}
+        BASE_URL: ${BASE_URL}
     ports:
       - "3000:3000"
     environment:
       NODE_ENV: production
+    volumes:
+      - ./cypress/screenshots:/app/cypress/screenshots
