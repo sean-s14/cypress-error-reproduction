@@ -1,5 +1,7 @@
 describe("Visit home page", () => {
   const BASE_URL = Cypress.env("BASE_URL");
+  const email = Cypress.env("AUTH0_EMAIL");
+  const password = Cypress.env("AUTH0_PASSWORD");
 
   beforeEach(() => {
     cy.visit(BASE_URL);
@@ -24,9 +26,6 @@ describe("Visit home page", () => {
     cy.visit(BASE_URL);
     cy.get("#login").click();
 
-    const email = Cypress.env("AUTH0_EMAIL");
-    const password = Cypress.env("AUTH0_PASSWORD");
-
     cy.origin(
       Cypress.env("VITE_AUTH0_DOMAIN"),
       { args: { email, password } },
@@ -39,8 +38,15 @@ describe("Visit home page", () => {
 
     cy.wait("@authRequest"); // This is to ensure the access token is available
 
-    // check that element with id of user-email is not an empty string
     cy.get("#user-email").should("not.be.empty");
     cy.get("#user-email").should("contain", Cypress.env("AUTH0_EMAIL"));
+  });
+
+  it("login with session", () => {
+    cy.login(email, password);
+
+    cy.visit(BASE_URL);
+    cy.get("#user-email").should("not.be.empty");
+    cy.get("#user-email").should("contain", email);
   });
 });
