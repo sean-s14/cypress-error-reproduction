@@ -21,6 +21,8 @@ Cypress.Commands.add("login", (email, password) => {
     cy.wait("@authRequest"); // This is to ensure the access token is available
 
     cy.get("h1").should("contain", "Cypress Error Reproduction");
+    cy.get("#user-email").should("not.be.empty");
+    cy.get("#user-email").should("contain", email);
   });
 });
 
