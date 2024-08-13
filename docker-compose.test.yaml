@@ -6,6 +6,10 @@ services:
         VITE_VAR: ${VITE_VAR}
         VAR: ${VAR}
         BASE_URL: ${BASE_URL}
+        VITE_AUTH0_DOMAIN: ${VITE_AUTH0_DOMAIN}
+        VITE_AUTH0_CLIENT_ID: ${VITE_AUTH0_CLIENT_ID}
+        AUTH0_EMAIL: ${AUTH0_EMAIL}
+        AUTH0_PASSWORD: ${AUTH0_PASSWORD}
     ports:
       - "3000:3000"
     environment:
